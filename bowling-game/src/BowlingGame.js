@@ -5,21 +5,17 @@ var Game = function() {
 };
 
 Game.prototype.roll = function(pins) {
-  this.rolls[this.currentRoll++] = pins;
+  this.rolls = this.rolls;
+  this.score += pins;
 };
 
+Game.prototype.rolls = function() {
+  this.rolls;
+}
+
 Game.prototype.score = function() {
-  this.score = 0;
-  i = 0;
-  for (frame=0; frame<10; frame++) {
-    console.log("Hi There");
-    if (this.rolls[i] + this.rolls[i+1] === 10) {
-      this.score += this.rolls[i+2];
-      i += 2;
-    } else {
-      this.score += this.rolls[i] + this.rolls[i+1];
-      i += 2;
-    }
+  for (i=0; i<this.rolls.length; i++) {
+    this.score += this.rolls[i];
   }
   return this.score;
 };
